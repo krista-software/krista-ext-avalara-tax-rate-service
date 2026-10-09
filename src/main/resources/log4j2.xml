@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p %c{1}:%L - %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- Root at INFO to suppress noisy third-party debug logs -->
+        <Root level="info">
+            <AppenderRef ref="console"/>
+        </Root>
+
+        <!-- Our extension package at DEBUG -->
+        <Logger name="app.krista.extensions.accounting.taxrateservice.avalarataxrateservice" level="debug" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="app.krista" level="debug" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <!-- Suppress noisy third-party libraries -->
+        <Logger name="okhttp3" level="warn"/>
+        <Logger name="org.apache.http" level="warn"/>
+        <Logger name="org.apache.http.wire" level="off"/>
+        <Logger name="org.apache.http.headers" level="off"/>
+        <Logger name="com.kristasoft.jaxrs.netty" level="warn"/>
+        <Logger name="com.kristasoft.common.io" level="warn"/>
+        <Logger name="io.netty" level="warn"/>
+    </Loggers>
+</Configuration>
